@@ -5,8 +5,8 @@ recognition.interimResults = true;
 recognition.lang = 'en-AU';
 
 let p = document.createElement('p');
-const words = document.querySelector('.words');
-words.appendChild(p);
+const speech = document.querySelector('.speech');
+speech.appendChild(p);
 
 recognition.addEventListener('result', e => {
   const transcript = Array.from(e.results)
@@ -19,7 +19,7 @@ recognition.addEventListener('result', e => {
 
     if (e.results[0].isFinal) {
       p = document.createElement('p');
-      words.appendChild(p);
+      speech.appendChild(p);
     }
 });
 

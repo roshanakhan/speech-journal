@@ -22,7 +22,7 @@ html {
       height: 100vh;
   }
 
-  .words {
+  .speech {
     max-width: 600px;
     margin: 50px auto;
     background: rgba(0, 0, 0, 0.35);
@@ -38,7 +38,7 @@ html {
     margin: 0 0 3rem;
   }
 
-  .words:before {
+  .speech:before {
     content: '';
       position: absolute;
       width: 4px;
