@@ -1,0 +1,50 @@
+html {
+    font-size: 10px;
+  }
+
+  body {
+    background: linear-gradient(135deg, yellow, purple, pink);
+    font-family: 'Raleway', sans-serif;    
+    color: white;
+    font-weight: 200;
+    font-size: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 5rem;
+    -webkit-text-stroke: 2px white;
+  }
+
+  .container {
+      height: 100vh;
+  }
+
+  .words {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(0, 0, 0, 0.35);
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+      padding: 1rem 2rem 1rem 5rem;
+      background-size: 100% 2rem;
+      position: relative;
+      line-height: 2rem;
+  }
+  
+  p {
+    margin: 0 0 3rem;
+  }
+
+  .words:before {
+    content: '';
+      position: absolute;
+      width: 4px;
+      top: 0;
+      left: 30px;
+      bottom: 0;
+      border: 1px solid;
+      border-color: transparent #efe4e4;
+  }
