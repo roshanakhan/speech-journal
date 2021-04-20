@@ -3,17 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Speech Journal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Speech Journal</h1>
-    <h3>Please allow your browser to use your microphone, <br> then say something to see it appear below.</h3>
-  <div class="speech" contenteditable></div>
-  </div>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-12">
+        <h1>Speech Journal</h1>
+        <div class="speech" contenteditable>
+          <p id="final"></p>
+            <p id="interim"></p>
+        </div>
+        <div class="text-center">
+            <button id="talk-btn" class="talk-btn btn-primary">Talk</button>
+            <button id="save-btn" class="save-btn btn-primary">Save</button>
+            <p id="status"></p>
+            
+            <!-- <p id="interim"></p>  -->
+      </div>
+        </div>
+    </div>
+         
+      
+</div>
+   
+  
   
 <script src="app.js"></script>
 

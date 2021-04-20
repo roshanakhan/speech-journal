@@ -1,28 +1,58 @@
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if ("webkitSpeechRecognition" in window) {
+  // Initialize webkitSpeechRecognition
+  let speechRecognition = new webkitSpeechRecognition();
 
-const recognition = new SpeechRecognition();
-recognition.interimResults = true;
-recognition.lang = 'en-AU';
+  // String for the Final Transcript
+  let final_transcript = "";
 
-let p = document.createElement('p');
-const speech = document.querySelector('.speech');
-speech.appendChild(p);
+  // Set the properties for the Speech Recognition object
+  speechRecognition.continuous = true;
+  speechRecognition.interimResults = true;
+  // speechRecognition.lang = document.querySelector("#select_dialect").value;
 
-recognition.addEventListener('result', e => {
-  const transcript = Array.from(e.results)
-    .map(result => result[0])
-    .map(result => result.transcript)
-    .join('');
+  // Callback Function for the onStart Event
+  speechRecognition.onstart = () => {
+    // Show the Status Element
+    document.querySelector("#status").style.display = "block";
+  };
+  speechRecognition.onerror = () => {
+    // Hide the Status Element
+    document.querySelector("#status").style.display = "none";
+  };
+  speechRecognition.onend = () => {
+    // Hide the Status Element
+    document.querySelector("#status").style.display = "none";
+  };
 
-    const winkScript = transcript.replace(/wink/gi, '😉');
-    p.textContent = winkScript;
+  speechRecognition.onresult = (event) => {
+    // Create the interim transcript string locally because we don't want it to persist like final transcript
+    let interim_transcript = "";
 
-    if (e.results[0].isFinal) {
-      p = document.createElement('p');
-      speech.appendChild(p);
+    // Loop through the results from the speech recognition object.
+    for (let i = event.resultIndex; i < event.results.length; ++i) {
+      // If the result item is Final, add it to Final Transcript, Else add it to Interim transcript
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript + ". ";
+      } else {
+        interim_transcript += event.results[i][0].transcript + ". ";
+      }
     }
-});
 
-recognition.addEventListener('end', recognition.start);
+    // Set the Final transcript and Interim transcript.
+    document.querySelector("#final").innerHTML = final_transcript;
+    document.querySelector("#interim").innerHTML = interim_transcript;
+  };
 
-recognition.start();
+  // Set the onClick property of the start button
+  document.querySelector("#talk-btn").onclick = () => {
+    // Start the Speech Recognition
+    speechRecognition.start();
+  };
+  // Set the onClick property of the stop button
+  document.querySelector("#save-btn").onclick = () => {
+    // Stop the Speech Recognition
+    speechRecognition.stop();
+  };
+} else {
+  console.log("Speech Recognition Not Available");
+}

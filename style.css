@@ -27,6 +27,7 @@ html {
 
   .container {
       height: 100vh;
+      position: relative;
   }
 
   .speech {
@@ -35,24 +36,22 @@ html {
     background: rgba(0, 0, 0, 0.35);
       border-radius: 5px;
       box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
-      padding: 1rem 2rem 1rem 5rem;
+      padding: 2rem 2rem 1rem 5rem;
       background-size: 100% 2rem;
       position: relative;
       line-height: 2rem;
+      height: 200px;
   }
   
-  p {
-    margin: 0 0 3rem;
-  
+
+  .talk-btn {
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
   }
 
-  .speech:before {
-    content: '';
-      position: absolute;
-      width: 4px;
-      top: 0;
-      left: 30px;
-      bottom: 0;
-      border: 1px solid;
-      border-color: transparent #efe4e4;
+  .save-btn {
+    padding: 5px;
+    border-radius: 5px;
+
   }
