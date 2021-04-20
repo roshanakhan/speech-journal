@@ -40,7 +40,9 @@ html {
       background-size: 100% 2rem;
       position: relative;
       line-height: 2rem;
-      height: 200px;
+      height: 400px;
+      overflow-y: scroll;
+     overflow-x: hidden;
   }
   
   .buttons {
