@@ -43,14 +43,21 @@ html {
       height: 200px;
   }
   
+  .buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+  }
 
   .talk-btn {
     padding: 5px;
     margin-right: 10px;
     border-radius: 5px;
+    width: 200px;
   }
 
   .save-btn {
+    width: 200px;
     padding: 5px;
     border-radius: 5px;
 
