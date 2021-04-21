@@ -1,6 +1,7 @@
 if ("webkitSpeechRecognition" in window) {
   // Initialize webkitSpeechRecognition
   let speechRecognition = new webkitSpeechRecognition();
+  speechRecognition.lang = 'en-AU';
 
   // String for the Final Transcript
   let final_transcript = "";
@@ -9,20 +10,6 @@ if ("webkitSpeechRecognition" in window) {
   speechRecognition.continuous = true;
   speechRecognition.interimResults = true;
   // speechRecognition.lang = document.querySelector("#select_dialect").value;
-
-  // Callback Function for the onStart Event
-  speechRecognition.onstart = () => {
-    // Show the Status Element
-    document.querySelector("#status").style.display = "block";
-  };
-  speechRecognition.onerror = () => {
-    // Hide the Status Element
-    document.querySelector("#status").style.display = "none";
-  };
-  speechRecognition.onend = () => {
-    // Hide the Status Element
-    document.querySelector("#status").style.display = "none";
-  };
 
   speechRecognition.onresult = (event) => {
     // Create the interim transcript string locally because we don't want it to persist like final transcript
@@ -43,12 +30,12 @@ if ("webkitSpeechRecognition" in window) {
     document.querySelector("#interim").innerHTML = interim_transcript;
   };
 
-  // Set the onClick property of the start button
+  // Set the onClick property of the talk button
   document.querySelector("#talk-btn").onclick = () => {
     // Start the Speech Recognition
     speechRecognition.start();
   };
-  // Set the onClick property of the stop button
+  // Set the onClick property of the save button
   document.querySelector("#save-btn").onclick = () => {
     // Stop the Speech Recognition
     speechRecognition.stop();
